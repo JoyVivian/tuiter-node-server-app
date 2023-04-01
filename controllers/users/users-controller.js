@@ -4,6 +4,7 @@ let users = people;
 const UserController = (app) => {
   app.get("/api/users", findUsers);
   app.get("/api/users/:uid", findUserById);
+  app.post("/api/users", createUser);
 };
 
 const findUsers = (req, res) => {
@@ -21,6 +22,13 @@ const findUserById = (req, res) => {
   const userId = req.params.uid;
   const user = users.find((u) => u._id === userId);
   res.json(user);
+};
+
+const createUser = (req, res) => {
+  const newUser = req.body;
+  newUser._id = new DataTransfer().getTime() + "";
+  users.push(newUser);
+  res.json(newUser);
 };
 
 export default UserController;
