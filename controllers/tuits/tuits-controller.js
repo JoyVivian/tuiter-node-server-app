@@ -12,7 +12,7 @@ const createTuit = async (req, res) => {
   newTuit.image = "nasa.svg";
   tuits.push(newTuit);
   // const insertedTuit = await tuitsDao.createTuit(newTuit);
-  res.json(newTuit);
+  res.json(tuits);
 };
 
 const findTuits = async (req, res) => {
@@ -23,7 +23,7 @@ const findTuits = async (req, res) => {
 const updateTuit = async (req, res) => {
   const tuitdIdToUpdate = req.params.tid;
   const updates = req.body;
-  const tuitIndex = tuits.findIndex((t) => t._id === tuitIdToUpdate);
+  const tuitIndex = tuits.findIndex((t) => t._id === tuitdIdToUpdate);
   tuits[tuitIndex] = {...tuits[tuitIndex], ...updates};
 //  const status = await tuitsDao.updateTuit(tuitdIdToUpdate, updates);
   // res.sendStatus(status);
