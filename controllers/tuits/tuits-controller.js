@@ -12,7 +12,7 @@ const createTuit = async (req, res) => {
   newTuit.image = "nasa.svg";
   tuits.push(newTuit);
   // const insertedTuit = await tuitsDao.createTuit(newTuit);
-  res.json(tuits);
+  res.json(newTuit);
 };
 
 const findTuits = async (req, res) => {
